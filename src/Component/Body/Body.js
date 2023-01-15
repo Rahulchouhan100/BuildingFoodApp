@@ -3,7 +3,7 @@ import "./Body.css"
 
 const Body = () => {
   return (
-    <div>this is body</div>
+    <div>this is body and checking</div>
   )
 }
 
