@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import "./Body.css";
 import { restaurantList, IMG_URL } from "../../../config";
 import { BsSearch } from "react-icons/Bs";
-
+import { BsFillPatchCheckFill } from "react-icons/Bs"
+import Coupon from "../../assets/ticket-perforated.svg"
+ 
 const RestCard = ({
   name,
   cuisines,
   cloudinaryImageId,
-  lastMileTravelString,
+  totalRatingsString,slaString,costForTwoString  ,aggregatedDiscountInfo
 }) => {
   return (
     <>
@@ -15,7 +17,14 @@ const RestCard = ({
         <img src={IMG_URL + cloudinaryImageId} alt="" className="" />
         <h2>{name}</h2>
         <h3>{cuisines}</h3>
-        <h4>{lastMileTravelString} stars</h4>
+        <div className="food-details">
+        <h4>{totalRatingsString} </h4>&middot;
+        <p>{slaString}</p> &middot;
+        <p>{costForTwoString}</p> <br />
+        <span>{ BsFillPatchCheckFill }</span>
+        </div>
+        <hr />
+        <div className="food-details2"><img src={Coupon} alt="" /> <span>{aggregatedDiscountInfo.header}</span></div>  
       </div>
     </>
   );

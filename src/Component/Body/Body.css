@@ -23,6 +23,10 @@
     color: #fff;
     margin: 1rem 0;
 }
+.card p{
+    font-size: 1.2rem;
+    color: gray;
+}
 
 
 /* body > main =============  */
@@ -60,4 +64,21 @@
     font-size: 2.3rem;
     margin-right: 2rem;
     cursor: pointer;
+}
+
+
+/* -------------  */
+.food-details{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.food-details2{
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  margin-top: .8rem;
+  font-weight: 600;
+  color: rgba(146, 63, 63, 0.998);
+  gap: .5rem;
 }
