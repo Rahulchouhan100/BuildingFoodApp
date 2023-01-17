@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Body.css";
 import { restaurantList, IMG_URL } from "../../../config";
 import { BsSearch } from "react-icons/Bs";
@@ -30,14 +30,31 @@ const RestCard = ({
   );
 };
 
-
 function filterData(searchText,restaurants){
-  return restaurants.filter((restaurant) => restaurant.data.name.includes(searchText) )
+  return restaurants.filter((rest) => rest.data.name.includes(searchText));
 }
+
 
 const body = () => {
   const [searchText, setSearchText] = useState("");
-  const [restaurants, setrestaurant] = useState(restaurantList);
+  const [restaurants, setrestaurant] = useState([]);
+
+ // [] empty dependency array=> once after render
+
+  useEffect(() =>{
+     // Api call
+  getRestaurant()
+
+  },[]);
+
+  async function getRestaurant(){
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.3164945&lng=78.03219179999999&page_type=DESKTOP_WEB_LISTING")
+    const json = await data.json();
+    setrestaurant(json?.data?.cards[2]?.data?.data?.cards);
+    
+  }
+ 
+
   return (
     <>
       <div className="search-container">
@@ -50,17 +67,15 @@ const body = () => {
         <span>
           <BsSearch className="search-icon" 
           onClick={() => {
-            //need to filter the data
-            //update the state - restaurants variable
-            const data = filterData(searchText,restaurants);
+            const data = filterData(searchText,restaurants)
             setrestaurant(data);
           }}
            />
-        </span>
+        </span> 
       </div>
       <div className="main">
         {restaurants.map((restaurant) => {
-          return <RestCard {...restaurant.data} />;
+          return <RestCard {...restaurant.data} key={restaurant.data.id} />;
         })}
       </div>
     </>
@@ -68,3 +83,9 @@ const body = () => {
 };
 
 export default body;
+
+
+// USEEFFECT - IT TAKKES TO PARAMETER ONE IS CALLBACK FUNCTION
+// AND ANOTHER IS DEPENDENCY ARRAY. THIS CALL BACK FUNCTION
+// NOT CALL IMMEIDIATELY IT WILL CALL WHENEVER USEFFECT WANTS OR AT A 
+// SPECIFIC TIME

@@ -9,8 +9,9 @@
   width: 25rem;
 }
 .card h2{
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: .6rem 0;
+    
 }
 .card h3{
     color: gray;
@@ -81,4 +82,7 @@
   font-weight: 600;
   color: rgba(146, 63, 63, 0.998);
   gap: .5rem;
+}
+hr{
+    color: rgb(172, 149, 149);
 }
