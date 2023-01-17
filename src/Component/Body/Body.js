@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./Body.css";
 import { restaurantList, IMG_URL } from "../../../config";
 import { BsSearch } from "react-icons/Bs";
-import { BsFillPatchCheckFill } from "react-icons/Bs"
-import Coupon from "../../assets/ticket-perforated.svg"
+import { BsFillPatchCheckFill } from "react-icons/Bs";
+import Coupon from "../../assets/ticket-perforated.svg";
+import Shimmer from "../Shimmer";
  
 const RestCard = ({
   name,
@@ -37,7 +38,9 @@ function filterData(searchText,restaurants){
 
 const body = () => {
   const [searchText, setSearchText] = useState("");
-  const [restaurants, setrestaurant] = useState([]);
+  const [allRestaurant, setAllRestaurant] = useState([]) // copy the data from filteredRestaurant
+  const [filteredRestaurnt, setFilteredRestaurnt] = useState([]);
+
 
  // [] empty dependency array=> once after render
 
@@ -50,12 +53,13 @@ const body = () => {
   async function getRestaurant(){
     const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.3164945&lng=78.03219179999999&page_type=DESKTOP_WEB_LISTING")
     const json = await data.json();
-    setrestaurant(json?.data?.cards[2]?.data?.data?.cards);
+    setAllRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+    setFilteredRestaurnt(json?.data?.cards[2]?.data?.data?.cards);
     
   }
  
 
-  return (
+  return filteredRestaurnt.length === 0 ? (<Shimmer />) : (
     <>
       <div className="search-container">
         <input
@@ -67,14 +71,14 @@ const body = () => {
         <span>
           <BsSearch className="search-icon" 
           onClick={() => {
-            const data = filterData(searchText,restaurants)
-            setrestaurant(data);
+            const data = filterData(searchText,allRestaurant)
+            setFilteredRestaurnt(data);
           }}
            />
         </span> 
       </div>
       <div className="main">
-        {restaurants.map((restaurant) => {
+        {filteredRestaurnt.map((restaurant) => {
           return <RestCard {...restaurant.data} key={restaurant.data.id} />;
         })}
       </div>
