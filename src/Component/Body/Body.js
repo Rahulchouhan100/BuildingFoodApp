@@ -32,7 +32,7 @@ const RestCard = ({
 };
 
 function filterData(searchText,restaurants){
-  return restaurants.filter((rest) => rest.data.name.includes(searchText));
+  return restaurants.filter((rest) => rest?.data?.name?.toLowerCase()?.includes(searchText.toLowerCase()));
 }
 
 
@@ -57,9 +57,13 @@ const body = () => {
     setFilteredRestaurnt(json?.data?.cards[2]?.data?.data?.cards);
     
   }
- 
 
-  return filteredRestaurnt.length === 0 ? (<Shimmer />) : (
+
+  //  early return 
+  // if(!allRestaurant) return null;
+
+  // conditional Rendering
+  return allRestaurant?.length === 0 ? (<Shimmer />) : (
     <>
       <div className="search-container">
         <input
@@ -78,7 +82,7 @@ const body = () => {
         </span> 
       </div>
       <div className="main">
-        {filteredRestaurnt.map((restaurant) => {
+        {filteredRestaurnt?.map((restaurant) => {
           return <RestCard {...restaurant.data} key={restaurant.data.id} />;
         })}
       </div>
@@ -93,3 +97,5 @@ export default body;
 // AND ANOTHER IS DEPENDENCY ARRAY. THIS CALL BACK FUNCTION
 // NOT CALL IMMEIDIATELY IT WILL CALL WHENEVER USEFFECT WANTS OR AT A 
 // SPECIFIC TIME
+
+// 2 hour 35 min 

@@ -25,9 +25,11 @@ section > ul > li > a{
     /* font-weight: 400; */
 
 }
-.signInBtn{
+.logInBtn{
     color: red;
     background-color: rgb(14, 188, 14);
     padding: .7rem 1rem;
     color: #fff;
+    border: none;
+    cursor: pointer;
 }
