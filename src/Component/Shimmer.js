@@ -4,8 +4,8 @@ import "./Shimmer.css";
 const Shimmer = () => {
   return (
     <>
-     <div className="shimmer-container">
-      shimmer loading
+     <div class="shimmer-container">
+      <div class="shimmer"></div>
      </div>
     </>
   )
