@@ -5,12 +5,15 @@ import { BsSearch } from "react-icons/Bs";
 import { BsFillPatchCheckFill } from "react-icons/Bs";
 import Coupon from "../../assets/ticket-perforated.svg";
 import Shimmer from "../Shimmer";
- 
+
 const RestCard = ({
   name,
   cuisines,
   cloudinaryImageId,
-  totalRatingsString,slaString,costForTwoString  ,aggregatedDiscountInfo
+  totalRatingsString,
+  slaString,
+  costForTwoString,
+  aggregatedDiscountInfo,
 }) => {
   return (
     <>
@@ -19,51 +22,55 @@ const RestCard = ({
         <h2>{name}</h2>
         <h3>{cuisines}</h3>
         <div className="food-details">
-        <h4>{totalRatingsString} </h4>&middot;
-        <p>{slaString}</p> &middot;
-        <p>{costForTwoString}</p> <br />
-        <span>{ BsFillPatchCheckFill }</span>
+          <h4>{totalRatingsString} </h4>&middot;
+          <p>{slaString}</p> &middot;
+          <p>{costForTwoString}</p> <br />
+          <span>{BsFillPatchCheckFill}</span>
         </div>
         <hr />
-        <div className="food-details2"><img src={Coupon} alt="" /> <span>{aggregatedDiscountInfo.header}</span></div>  
+        <div className="food-details2">
+          <img src={Coupon} alt="" />{" "}
+          <span>{aggregatedDiscountInfo.header}</span>
+        </div>
       </div>
     </>
   );
 };
 
-function filterData(searchText,restaurants){
-  return restaurants.filter((rest) => rest?.data?.name?.toLowerCase()?.includes(searchText.toLowerCase()));
+function filterData(searchText, restaurants) {
+  return restaurants.filter((rest) =>
+    rest?.data?.name?.toLowerCase()?.includes(searchText.toLowerCase())
+  );
 }
-
 
 const body = () => {
   const [searchText, setSearchText] = useState("");
-  const [allRestaurant, setAllRestaurant] = useState([]) // copy the data from filteredRestaurant
+  const [allRestaurant, setAllRestaurant] = useState([]); // copy the data from filteredRestaurant
   const [filteredRestaurnt, setFilteredRestaurnt] = useState([]);
 
+  // [] empty dependency array=> once after render
 
- // [] empty dependency array=> once after render
+  useEffect(() => {
+    // Api call
+    getRestaurant();
+  }, []);
 
-  useEffect(() =>{
-     // Api call
-  getRestaurant()
-
-  },[]);
-
-  async function getRestaurant(){
-    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.3164945&lng=78.03219179999999&page_type=DESKTOP_WEB_LISTING")
+  async function getRestaurant() {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.3164945&lng=78.03219179999999&page_type=DESKTOP_WEB_LISTING"
+    );
     const json = await data.json();
     setAllRestaurant(json?.data?.cards[2]?.data?.data?.cards);
     setFilteredRestaurnt(json?.data?.cards[2]?.data?.data?.cards);
-    
   }
 
-
-  //  early return 
+  //  early return
   // if(!allRestaurant) return null;
 
   // conditional Rendering
-  return allRestaurant?.length === 0 ? (<Shimmer />) : (
+  return allRestaurant?.length === 0 ? (
+    <Shimmer />
+  ) : (
     <>
       <div className="search-container">
         <input
@@ -73,13 +80,14 @@ const body = () => {
           onChange={(e) => setSearchText(e.target.value)}
         />
         <span>
-          <BsSearch className="search-icon" 
-          onClick={() => {
-            const data = filterData(searchText,allRestaurant)
-            setFilteredRestaurnt(data);
-          }}
-           />
-        </span> 
+          <BsSearch
+            className="search-icon"
+            onClick={() => {
+              const data = filterData(searchText, allRestaurant);
+              setFilteredRestaurnt(data);
+            }}
+          />
+        </span>
       </div>
       <div className="main">
         {filteredRestaurnt?.map((restaurant) => {
@@ -92,10 +100,9 @@ const body = () => {
 
 export default body;
 
-
 // USEEFFECT - IT TAKKES TO PARAMETER ONE IS CALLBACK FUNCTION
 // AND ANOTHER IS DEPENDENCY ARRAY. THIS CALL BACK FUNCTION
-// NOT CALL IMMEIDIATELY IT WILL CALL WHENEVER USEFFECT WANTS OR AT A 
+// NOT CALL IMMEIDIATELY IT WILL CALL WHENEVER USEFFECT WANTS OR AT A
 // SPECIFIC TIME
 
-// 2 hour 35 min 
+// 2 hour 35 min

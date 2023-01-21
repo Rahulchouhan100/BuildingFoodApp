@@ -5,7 +5,8 @@
   "main": "App.js",
   "scripts": {
     "test": "jest",
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "build": "react-scripts build"
   },
   "author": "Rahul",
   "license": "ISC",
