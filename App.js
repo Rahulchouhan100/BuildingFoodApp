@@ -4,8 +4,9 @@ import Body from "./src/Component/Body/Body";
 import Footer from "./src/Component/Footer/Footer";
 import Header from "./src/Component/Header/Header";
 import About from "./src/component/AboutUs/About";
-import Error from "./src/Component/Error Page/Error";
 import Contact from "./src/Component/Contact/Contact";
+import Error from "./src/Component/Error Page/Error";
+import Login from "./src/Component/Login/Login";
 import "./index.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import RestaurantMenu from "./src/Component/RestMenu/RestaurantMenu";
@@ -37,6 +38,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
       {
         path: "/restaurant/:id",

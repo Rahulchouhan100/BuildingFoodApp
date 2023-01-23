@@ -33,22 +33,25 @@ const Header = () => {
             <li>
               <Link to="/contact">contact</Link>
             </li>
+
             <li>
-              {isLoggedIn ? (
-                <button
-                  className="logInBtn"
-                  onClick={() => setIsLoggedIn(!isLoggedIn)}
-                >
-                  Log in
-                </button>
-              ) : (
-                <button
-                  className="logInBtn"
-                  onClick={() => setIsLoggedIn(!isLoggedIn)}
-                >
-                  Log out
-                </button>
-              )}
+              <Link to="/login">
+                {isLoggedIn ? (
+                  <button
+                    className="logInBtn"
+                    onClick={() => setIsLoggedIn(!isLoggedIn)}
+                  >
+                    Log in
+                  </button>
+                ) : (
+                  <button
+                    className="logInBtn"
+                    onClick={() => setIsLoggedIn(!isLoggedIn)}
+                  >
+                    Log out
+                  </button>
+                )}
+              </Link>
             </li>
           </ul>
         </section>

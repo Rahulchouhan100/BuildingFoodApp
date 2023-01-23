@@ -4,11 +4,16 @@ import "./Shimmer.css";
 const Shimmer = () => {
   return (
     <>
-      <div class="shimmer-container">
-        {Array(10)
+      <div className="search-shimmer"></div>
+      <div className="shimmer-container">
+        {Array(15)
           .fill("")
           .map((e) => (
-            <div class="shimmer"></div>
+            <div className="shimmer">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
           ))}
       </div>
     </>
