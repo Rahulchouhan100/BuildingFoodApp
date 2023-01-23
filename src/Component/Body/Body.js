@@ -5,6 +5,7 @@ import { BsSearch } from "react-icons/Bs";
 import { BsFillPatchCheckFill } from "react-icons/Bs";
 import Coupon from "../../assets/ticket-perforated.svg";
 import Shimmer from "../Shimmer";
+import { Link } from "react-router-dom";
 
 const RestCard = ({
   name,
@@ -91,7 +92,14 @@ const body = () => {
       </div>
       <div className="main">
         {filteredRestaurnt?.map((restaurant) => {
-          return <RestCard {...restaurant.data} key={restaurant.data.id} />;
+          return (
+            <Link
+              to={"restaurant/" + restaurant.data.id}
+              key={restaurant.data.id}
+            >
+              <RestCard {...restaurant.data} />
+            </Link>
+          );
         })}
       </div>
     </>
