@@ -37,7 +37,7 @@ const RestaurantMenu = () => {
       <div>
         <img
           src={IMG_URL + restaurant.cloudinaryImageId}
-          alt=""
+          alt="logo"
           className="menu-img"
         />
         <div>
