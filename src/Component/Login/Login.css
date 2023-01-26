@@ -69,3 +69,13 @@
 .or{
     margin-top: 1rem;
 }
+
+#text{
+    color: blue;
+}
+.formik {
+
+}
+.input-password {
+    color: green !important;
+}

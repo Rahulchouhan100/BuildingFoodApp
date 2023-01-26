@@ -17,11 +17,12 @@ const Login = () => {
             Welcome to <span>Onifood</span>
           </h1>
           <Formik
+            className="formik"
             initialValues={{ email: "", password: "" }}
             validate={(values) => {
               const errors = {};
               if (!values.email) {
-                errors.email = "Required";
+                errors.email = "Require";
               } else if (
                 !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
               ) {
@@ -59,6 +60,7 @@ const Login = () => {
                 {errors.email && touched.email && errors.email}
                 <input
                   type="password"
+                  className="input-password"
                   name="password"
                   placeholder="Password"
                   onChange={handleChange}
