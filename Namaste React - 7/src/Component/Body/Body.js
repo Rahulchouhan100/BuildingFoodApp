@@ -6,7 +6,6 @@ import { BsFillPatchCheckFill } from "react-icons/Bs";
 import Coupon from "../../assets/ticket-perforated.svg";
 import Shimmer from "../Shimmer";
 import { Link } from "react-router-dom";
-import { filterData } from "../../utils/helper";
 
 const RestCard = ({
   name,
@@ -38,6 +37,12 @@ const RestCard = ({
     </>
   );
 };
+
+function filterData(searchText, restaurants) {
+  return restaurants.filter((rest) =>
+    rest?.data?.name?.toLowerCase()?.includes(searchText.toLowerCase())
+  );
+}
 
 const body = () => {
   const [searchText, setSearchText] = useState("");
