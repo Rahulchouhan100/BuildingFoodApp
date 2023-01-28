@@ -7,6 +7,7 @@ import Coupon from "../../assets/ticket-perforated.svg";
 import Shimmer from "../Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../../utils/helper";
+import useOnline from "../../utils/useOnline";
 
 const RestCard = ({
   name,
@@ -58,6 +59,17 @@ const body = () => {
     const json = await data.json();
     setAllRestaurant(json?.data?.cards[2]?.data?.data?.cards);
     setFilteredRestaurnt(json?.data?.cards[2]?.data?.data?.cards);
+  }
+
+  const isOnline = useOnline();
+
+  if (!isOnline) {
+    return (
+      <>
+        {" "}
+        <h1>i'm offline </h1>{" "}
+      </>
+    );
   }
 
   //  early return
