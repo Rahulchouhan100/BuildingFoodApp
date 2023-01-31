@@ -8,7 +8,7 @@ const Shimmer = () => {
       <div className="shimmer-container">
         {Array(15)
           .fill("")
-          .map((e) => (
+          .map((e, index) => (
             <div className="shimmer">
               <div></div>
               <div></div>

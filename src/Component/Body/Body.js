@@ -66,8 +66,7 @@ const body = () => {
   if (!isOnline) {
     return (
       <>
-        {" "}
-        <h1>i'm offline </h1>{" "}
+        <CheckOnline />
       </>
     );
   }
