@@ -79,3 +79,6 @@
 .input-password {
     color: green !important;
 }
+hr{
+    margin-bottom: 1.5rem;
+}
