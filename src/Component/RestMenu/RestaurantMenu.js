@@ -15,57 +15,70 @@ const RestaurantMenu = () => {
   return !restaurant ? (
     "loading"
   ) : (
-    <div className="menu-container">
-      <div className="main-container">
-        <div className="first-container">
-          <div className="img-container">
-            <img
-              src={IMG_URL + restaurant.cloudinaryImageId}
-              alt="logo"
-              className="menu-img"
-            />
-          </div>
-          <div className="img-details-container">
-            <h2>{restaurant?.name}</h2>
-            <h3>{restaurant?.cuisines}</h3>
-            <h4>
-              {restaurant?.city}, {restaurant?.area}
-            </h4>
-            <div className="rating-time-cost-container">
-              <div className="rating">
-                <span>
-                  <BsStarFill /> <span>4.2</span>
-                </span>{" "}
-                <br />
-                <span>{restaurant?.totalRatingsString}</span>
-              </div>
-              <div className="time">
-                <span>33 mins</span> <br />
-                <span>Delivery Time</span>
-              </div>
-              <div className="cost">
-                <span>{restaurant.costForTwoMsg}</span> <br />
-                <span>for two</span>
+    <>
+      <div className="menu-container">
+        <div className="main-container">
+          <div className="first-container">
+            <div className="img-container">
+              <img
+                src={IMG_URL + restaurant.cloudinaryImageId}
+                alt="logo"
+                className="menu-img"
+              />
+            </div>
+            <div className="img-details-container">
+              <h2>{restaurant?.name}</h2>
+              <h3>{restaurant?.cuisines}</h3>
+              <h4>
+                {restaurant?.city}, {restaurant?.area}
+              </h4>
+              <div className="rating-time-cost-container">
+                <div className="rating">
+                  <span>
+                    <BsStarFill /> <span>4.2</span>
+                  </span>{" "}
+                  <br />
+                  <span>{restaurant?.totalRatingsString}</span>
+                </div>
+                <div className="time">
+                  <span>33 mins</span> <br />
+                  <span>Delivery Time</span>
+                </div>
+                <div className="cost">
+                  <span>{restaurant.costForTwoMsg}</span> <br />
+                  <span>for two</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div>
-          <div className="offers-container">
-            <p>OFFER</p>
-            <p>
-              <MdLocalOffer className="coupon-icon" />
-              Flat ₹125 off on orders above ₹249 |<br /> Use code FLAT125
-            </p>{" "}
-            <br />
-            <p>
-              <MdLocalOffer className="coupon-icon" />
-              50% off | Use WELCOME50
-            </p>
+          <div>
+            <div className="offers-container">
+              <p>OFFER</p>
+              <p>
+                <MdLocalOffer className="coupon-icon" />
+                Flat ₹125 off on orders above ₹249 |<br /> Use code FLAT125
+              </p>{" "}
+              <br />
+              <p>
+                <MdLocalOffer className="coupon-icon" />
+                50% off | Use WELCOME50
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      {/* <h1>hello I'm Menu {console.log(restaurant?.menu?.items)} </h1> */}
+      <div className="menu-items">
+        <h2>Food items</h2>
+        <ul>
+          {Object.values(restaurant?.menu?.items).map((item) => (
+            <>
+              <p> &middot;</p> <li>{item.name}</li>
+            </>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 };
 

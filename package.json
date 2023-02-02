@@ -2,11 +2,10 @@
   "name": "buildingfoodapp",
   "version": "1.0.0",
   "description": "",
-  "main": "App.js",
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",
-    "build": "react-scripts build"
+    "build": "parcel build index.html"
   },
   "author": "Rahul",
   "license": "ISC",
