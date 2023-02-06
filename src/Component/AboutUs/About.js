@@ -1,3 +1,5 @@
+import Profile from "../Profile";
+import ProfileClass from "../ProfileClass";
 import "./About.css";
 
 const Section = ({ title, para }) => {
@@ -15,11 +17,6 @@ const About = () => {
   return (
     <>
       <h1>this is heading !!!</h1>
-      <Section
-        title={"About Onifoods"}
-        para={"we're good at food delivering"}
-      />
-      <Section title={"Team Onifoods"} para={"we're good at team works"} />
     </>
   );
 };
