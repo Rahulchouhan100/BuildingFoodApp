@@ -11,7 +11,7 @@ import "./index.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import RestaurantMenu from "./src/Component/RestMenu/RestaurantMenu";
 import Shimmer from "./src/Component/Shimmer";
-import ProfileClass from "./src/Component/ProfileClass";
+import ProfileFunctionalCom from "./src/Component/ProfileFunctionalCom";
 // import InstaMart from "./src/Component/InstaMart"; -- we don't need to import like this.
 
 // chunking
@@ -51,7 +51,7 @@ const appRouter = createBrowserRouter([
         children: [
           {
             path: "profile",
-            element: <ProfileClass />,
+            element: <ProfileFunctionalCom />,
           },
         ],
       },
