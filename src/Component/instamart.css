@@ -1,0 +1,8 @@
+.instamart{
+    border: 1px solid red;
+    margin: 2rem 2rem;
+
+}
+.instamart > h1{
+    margin-bottom: 2rem;
+}
