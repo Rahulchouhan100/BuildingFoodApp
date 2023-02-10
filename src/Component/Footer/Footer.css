@@ -1,3 +1,13 @@
-.header{
-    background-color: red;
+.footer-details{
+    background-color: rgb(213, 213, 213);
+    padding: 1rem ;
+    text-align: center;
+    /* position: fixed;
+    left: 0;
+    bottom: 0   ;
+    width: 100%; */
+}
+.footer-details  > a{
+    color: rgb(247, 8, 8);
+
 }

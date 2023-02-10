@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { IMG_URL } from "../../../config.js";
 import "./RestMenu.css";
 import { BsStarFill } from "react-icons/Bs";
+import { BiRupee } from "react-icons/Bi";
 import { MdLocalOffer } from "react-icons/Md";
 import useRestaurant from "../../utils/useRestaurant.js";
 
@@ -69,11 +70,32 @@ const RestaurantMenu = () => {
       </div>
       {/* <h1>hello I'm Menu {console.log(restaurant?.menu?.items)} </h1> */}
       <div className="menu-items">
-        <h2>Food items</h2>
+        <h2>Food items Recommended</h2>
         <ul>
           {Object.values(restaurant?.menu?.items).map((item) => (
             <>
-              <p> &middot;</p> <li>{item.name}</li>
+              <div className="food-items">
+                <div>
+                  <h2>{item.name}</h2>
+                  <p>{item.description}</p>
+                  <p>
+                    {" "}
+                    <span>
+                      <BiRupee />
+                    </span>
+                    {item.price / 100}
+                  </p>
+                </div>
+                <div className="food-add">
+                  <img
+                    src={IMG_URL + item.cloudinaryImageId}
+                    alt=""
+                    className="food-add-img"
+                  />{" "}
+                  <br />
+                  <button>ADD +</button>
+                </div>
+              </div>
             </>
           ))}
         </ul>
