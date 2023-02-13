@@ -12,6 +12,9 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import RestaurantMenu from "./src/Component/RestMenu/RestaurantMenu";
 import Shimmer from "./src/Component/Shimmer";
 import ProfileFunctionalCom from "./src/Component/ProfileFunctionalCom";
+import { Provider } from "react-redux";
+import store from "./src/utils/store";
+import CartItem from "./src/Component/CartItem/CartItem";
 // import InstaMart from "./src/Component/InstaMart"; -- we don't need to import like this.
 
 // chunking
@@ -27,11 +30,11 @@ const InstaMart = lazy(() => import("./src/Component/InstaMart"));
 
 const App = () => {
   return (
-    <>
+    <Provider store={store}>
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </Provider>
   );
 };
 
@@ -74,6 +77,10 @@ const appRouter = createBrowserRouter([
             <InstaMart />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <CartItem />,
       },
     ],
   },

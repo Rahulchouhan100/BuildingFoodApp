@@ -6,12 +6,18 @@ import { BsStarFill } from "react-icons/Bs";
 import { BiRupee } from "react-icons/Bi";
 import { MdLocalOffer } from "react-icons/Md";
 import useRestaurant from "../../utils/useRestaurant.js";
+import { useDispatch } from "react-redux";
+import { additem } from "../../utils/cartSlice.js";
 
 const RestaurantMenu = () => {
   // const [restaurant, setRestaurant] = useState({});
 
   const { id } = useParams();
   const restaurant = useRestaurant(id);
+  const dispatch = useDispatch();
+  const handlerItem = (item) => {
+    dispatch(additem(item));
+  };
 
   return !restaurant ? (
     "loading"
@@ -93,7 +99,7 @@ const RestaurantMenu = () => {
                     className="food-add-img"
                   />{" "}
                   <br />
-                  <button>ADD +</button>
+                  <button onClick={() => handlerItem(item)}>ADD +</button>
                 </div>
               </div>
             </>
