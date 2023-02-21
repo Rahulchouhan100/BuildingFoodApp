@@ -15,7 +15,7 @@ const useRestaurant = (id) => {
   async function getRestaurantsInfo() {
     try {
       const response = await fetch(
-        "https://www.swiggy.com/dapi/menu/v4/full?lat=30.3164945&lng=78.03219179999999&menuId=" +
+        "https://corsanywhere.herokuapp.com/https://www.swiggy.com/dapi/menu/v4/full?lat=30.3164945&lng=78.03219179999999&menuId=" +
           id
       );
       const json = await response.json();
