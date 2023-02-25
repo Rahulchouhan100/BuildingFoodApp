@@ -9,7 +9,7 @@ const Shimmer = () => {
         {Array(15)
           .fill("")
           .map((e, index) => (
-            <div className="shimmer">
+            <div className="shimmer" key={index}>
               <div></div>
               <div></div>
               <div></div>

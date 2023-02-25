@@ -184,3 +184,170 @@
     cursor: pointer;
 
 }
+
+
+/* media query -----------------  */
+@media(min-width:320px) and (max-width:425px){
+    .main-container{
+        flex-direction: column;
+        
+    }
+    .first-container{
+        flex-direction: column;
+       
+    }
+    .first-container > .img-details-container {
+        margin: 0;
+    }
+    .first-container > .img-details-container > h2{
+        margin-top: 1rem;
+        font-size: 2rem;   
+        color: #fff;
+        
+     }
+     .first-container > .img-details-container > h3{
+        font-size: 1.5rem;  
+     }
+     .rating-time-cost-container{
+        /* text-align: center; */
+        gap: 1rem;
+
+    }
+    .rating span:nth-child(1){
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-right: 4rem;
+    }
+    .time span:nth-child(1){
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-right: 2rem;
+    }
+    .cost span:nth-child(1){
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-right: 1rem;
+    }
+    .offers-container{
+        margin-top: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .offers-container p:nth-child(1){
+        display: none; 
+    
+    }
+    .offers-container > p:nth-child(2){
+        font-size: 1.2rem;
+       
+        
+    }
+    .offers-container p:nth-child(4){
+        font-size: 1.2rem;
+        
+    }
+    /* ----------------------- food items ----------------  */
+.menu-items > h2{
+    margin-left: 1.2rem;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+.food-items{
+   flex-direction: column;
+   width: 90%;
+   justify-content: flex-start;
+}
+.food-add{
+    text-align: start;
+}
+}
+
+@media(min-width:426px) and (max-width:768px){
+    .main-container{
+        flex-direction: column;
+        
+    }
+    .first-container{
+        flex-direction: column;
+       
+    }
+    .first-container > .img-details-container {
+        margin: 0;
+    }
+    .first-container > .img-details-container > h2{
+        margin-top: 1rem;
+        font-size: 2.3rem;   
+        color: #fff;
+        
+     }
+     .first-container > .img-details-container > h3{
+        font-size: 1.8rem;  
+     }
+     .offers-container{
+        margin-top: 2rem;
+        padding: 1rem 1rem;
+    }
+     .offers-container p:nth-child(1){
+        display: none; 
+    
+    }
+    .offers-container > p:nth-child(2){
+        font-size: 1.8rem;
+       
+        
+    }
+    .menu-img{
+        height: 22rem;
+        width: 100%;
+    }
+
+    .offers-container p:nth-child(4){
+        font-size: 1.8rem;
+        
+    }
+        /* ----------------------- food items ----------------  */
+.menu-items > h2{
+    margin-left: 1.2rem;
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+.food-items{
+    flex-direction: column;
+    width: 90%;
+    
+ }
+ .food-items > div > h2{
+    font-size: 3rem !important;
+   
+    
+ }
+ .food-items > div > p{
+    font-size: 2rem;
+   
+    
+ }
+ .food-add{
+    text-align: start;
+}
+}
+@media(min-width:769px) and (max-width:992px){
+    .main-container{
+        flex-direction: column;
+        
+    }
+    .first-container{
+        flex-direction: column;
+       
+    }
+    .menu-img{
+        height: 30rem;
+        width: 100%;
+    }
+    .first-container > .img-details-container {
+        margin: 0;
+    }
+    .offers-container{
+        margin-top: 3rem;
+        padding: 1rem 1rem;
+    }
+}

@@ -46,3 +46,9 @@
       background-position: 100%;
     }
   }
+
+  @media (min-width:320px) and (max-width:425px){
+    .shimmer-container{
+         margin-left: 2.3rem;
+    }
+  }
