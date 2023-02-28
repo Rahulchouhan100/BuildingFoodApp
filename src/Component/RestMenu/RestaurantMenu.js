@@ -89,7 +89,7 @@ const RestaurantMenu = () => {
                     <span>
                       <BiRupee />
                     </span>
-                    {item.price / 100}
+                    {Math.round(item.price / 100)}
                   </p>
                 </div>
                 <div className="food-add">
