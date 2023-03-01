@@ -28,7 +28,11 @@ const CartItem = () => {
         {/* // do not use index as a key */}
         {store.map((e, index) => (
           <div className="cart-card" key={index}>
-            <img src={IMG_URL + e?.cloudinaryImageId} alt="" />
+            <img
+              src={IMG_URL + e?.cloudinaryImageId}
+              alt=""
+              className="img-pic"
+            />
             <h1>{e?.name}</h1>
             <h2>{Math.round(e?.price / 100)} &#8377; </h2>
             <button onClick={() => removeCart()} className="removeitem-btn">

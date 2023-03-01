@@ -27,3 +27,24 @@
     outline: none;
     cursor: pointer;
 }
+@media(min-width:320px) and (max-width:425px){
+    .instamart-container{
+        width: 90%;
+    }
+    .title-container > h2 {
+        font-size: 1.6rem;
+    }
+    .instamart-container > div > p{
+       
+        font-size: 1rem;
+       
+    }
+}
+@media(min-width:426px) and (max-width:768px){
+    .instamart-container{
+        width: 90%;
+    }
+    .title-container > h2 {
+        font-size: 1.8rem;
+    }
+}
