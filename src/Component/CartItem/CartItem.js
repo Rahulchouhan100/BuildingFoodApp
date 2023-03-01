@@ -19,7 +19,12 @@ const CartItem = () => {
     <div>
       <div className="cartitem-btn">
         <h1>Cart Items - {store.length}</h1>
-        <button onClick={() => clearCart()} className="clearCart-btn">
+        <button
+          onClick={() => {
+            clearCart();
+          }}
+          className="clearCart-btn"
+        >
           Clear Cart
         </button>
       </div>
