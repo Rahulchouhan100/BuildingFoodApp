@@ -32,8 +32,9 @@ const RestCard = ({
         </div>
         <hr />
         <div className="food-details2">
-          <img src={Coupon} alt="" />{" "}
-          <span>{aggregatedDiscountInfo.header}</span>
+          <img src={Coupon} alt="" />
+          <span>500 off</span>
+          {/* <span>{aggregatedDiscountInfo.header}</span> */}
         </div>
       </div>
     </>
